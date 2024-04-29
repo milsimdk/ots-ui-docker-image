@@ -13,7 +13,7 @@ RUN lastversion --assets extract brian7704/OpenTAKServer-UI
 # Second stage: runtime
 # ************************************************************
 FROM nginx:mainline-bookworm
-ENV BUILD_VERSION = latest
+ARG BUILD_VERSION latest
 
 LABEL maintainer="https://github.com/milsimdk"
 LABEL org.opencontainers.image.title="Docker image for OpenTAKServer-UI"

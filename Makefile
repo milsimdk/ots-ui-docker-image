@@ -13,14 +13,17 @@ build: ## Build Images
 	docker compose build --no-cache
 
 retag: ## Stop OpenTAKServer
-	git tag -d ${OTSUI_VERSION}
-	git push origin :refs/tags/${OTSUI_VERSION}
-	git tag ${OTSUI_VERSION} -m "Version ${OTSUI_VERSION} released"
-	git push origin ${OTSUI_VERSION}
+	git tag -d ${BUILD_VERSION}
+	git push origin :refs/tags/${BUILD_VERSION}
+	git tag ${BUILD_VERSION} -m "Version ${BUILD_VERSION} released"
 
 tag: ## Restart OpenTAKServer
-	git tag ${OTSUI_VERSION} -m "Version ${OTSUI_VERSION} released"
+	git tag ${BUILD_VERSION} -m "Version ${BUILD_VERSION} released"
 
 commit: ## Logs for OpenTAKServer
 	git add .
-	git commit -m'Working on ${OTSUI_VERSION}'
+	git commit -m'Working on ${BUILD_VERSION}'
+
+push:
+	git push
+	git push --tags

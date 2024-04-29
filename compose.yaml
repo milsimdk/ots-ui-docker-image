@@ -5,6 +5,8 @@ services:
     build:
       context: .
       tags:
-        - opentakserver-ui:latest
         - opentakserver-ui:${OTSUI_VERSION}
+        - opentakserver-ui:latest
     container_name: opentakserver-ui
+    environment:
+      OTSUI_VERSION: ${OTSUI_VERSION}

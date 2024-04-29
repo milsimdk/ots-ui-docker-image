@@ -1,0 +1,10 @@
+---
+services:
+  opentakserver-ui:
+    image: opentakserver-ui:latest
+    build:
+      context: .
+      tags:
+        - opentakserver-ui:latest
+        - opentakserver-ui:${OTSUI_VERSION}
+    container_name: opentakserver-ui

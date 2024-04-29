@@ -27,4 +27,6 @@ LABEL org.opencontainers.image.licenses="GNU General Public License v3.0"
 # Copy OTS WebUI from build stage
 COPY --from=build /build /usr/share/nginx/html/
 
+RUN sed -ri -e "s!index  index.html index.htm;!index  index.html index.htm;\n\ttry_files \$uri /index.html;!g" /etc/nginx/conf.d/*.conf
+
 EXPOSE 80

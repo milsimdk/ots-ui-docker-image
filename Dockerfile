@@ -30,3 +30,6 @@ COPY --from=build /build /usr/share/nginx/html/
 RUN sed -ri -e "s!index  index.html index.htm;!index  index.html index.htm;\n\ttry_files \$uri /index.html;!g" /etc/nginx/conf.d/*.conf
 
 EXPOSE 80
+
+HEALTHCHECK --interval=30s --start-period=30s \
+    CMD curl -k -I -A 'Docker-healthcheck' --fail http://localhost || exit 1

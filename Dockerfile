@@ -31,5 +31,4 @@ RUN sed -ri -e "s!index  index.html index.htm;!index  index.html index.htm;\n\tt
 
 EXPOSE 80
 
-HEALTHCHECK --interval=30s --start-period=30s \
-    CMD curl -k -I -A 'Docker-healthcheck' --fail http://localhost || exit 1
+HEALTHCHECK --interval=30s --start-period=30s CMD curl -k -I -A 'Docker-healthcheck' --fail http://localhost || exit 1

@@ -26,9 +26,8 @@ LABEL org.opencontainers.image.licenses="GNU General Public License v3.0"
 
 # Copy OTS WebUI from build stage
 COPY --from=build /build /usr/share/nginx/html/
+COPY default.conf.template /etc/nginx/templates/
 
-RUN sed -ri -e "s!index  index.html index.htm;!index  index.html index.htm;\n\ttry_files \$uri /index.html;!g" /etc/nginx/conf.d/*.conf
+HEALTHCHECK --interval=30s CMD curl -k -I -A 'Docker-healthcheck' --fail http://localhost || exit 1
 
-EXPOSE 80
-
-HEALTHCHECK --interval=30s --start-period=30s CMD curl -k -I -A 'Docker-healthcheck' --fail http://localhost || exit 1
+EXPOSE 80/tcp

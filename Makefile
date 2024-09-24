@@ -30,5 +30,5 @@ push:
 
 public:
 	$(MAKE) commit
-	$(MAKE) retag
+# $(MAKE) retag
 	$(MAKE) push

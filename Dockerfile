@@ -28,6 +28,6 @@ LABEL org.opencontainers.image.licenses="GNU General Public License v3.0"
 COPY --from=build /build /usr/share/nginx/html/
 COPY default.conf.template /etc/nginx/templates/
 
-HEALTHCHECK --interval=30s CMD curl -k -I -A 'Docker-healthcheck' --fail http://localhost || exit 1
+HEALTHCHECK --interval=60s CMD curl -k -I -A 'Docker-healthcheck' --fail http://localhost || exit 1
 
 EXPOSE 80/tcp

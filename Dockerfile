@@ -2,7 +2,7 @@
 # ************************************************************
 # First stage: builder
 # ************************************************************
-FROM python:3.12-slim as build
+FROM python:3.13-slim as build
 
 WORKDIR /build
 
